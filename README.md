@@ -51,8 +51,8 @@ The service is now running on localhost:8080
 
 You need basic authentication to access the endpoints.
 There are example users for testing purposes:
-  - user: has access to get requests
-  - admin: has access to all requests
+  - user/user: has access to get requests
+  - admin/admin: has access to all requests
   
 REST API for machine management
 ```
