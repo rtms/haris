@@ -68,3 +68,8 @@ Create some entities with basic payload for testing:
       "name": "testMachine01"
     }
   ```
+
+### Next Steps
+- implement database versioning (Flyway, Liquibase etc.)
+- implement JWT token-based authentication/authorization
+- cover with integration tests
