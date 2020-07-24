@@ -62,4 +62,9 @@ POST /machines - Creates a new machine
 PATCH /machines/{id} - Updates provided fields of machine with specified id
 DELETE /machines/{id} - Deletes machine with specified id
 ```
-
+Create some entities with basic payload for testing:
+  ```
+    {
+      "name": "testMachine01"
+    }
+  ```
