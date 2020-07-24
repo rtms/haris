@@ -41,13 +41,13 @@ public class MachineController {
     }
 
     @PostMapping()
-    public void saveMachine(@RequestBody MachineDTO machineDTO) {
-        service.saveMachine(machineDTO);
+    public MachineDTO saveMachine(@RequestBody @Valid MachineDTO machineDTO) {
+        return service.saveMachine(machineDTO);
     }
 
     @RequestMapping(path = "/update", method = RequestMethod.PATCH)
-    public void updateMachine(@RequestBody @Valid MachineDTO machineDTO) {
-        service.updateMachine(machineDTO);
+    public MachineDTO updateMachine(@RequestBody @Valid MachineDTO machineDTO) {
+        return service.updateMachine(machineDTO);
     }
 
     @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)

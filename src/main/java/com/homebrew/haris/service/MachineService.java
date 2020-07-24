@@ -10,6 +10,7 @@ import org.springframework.util.StringUtils;
 import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -20,7 +21,7 @@ public class MachineService {
     MachineRepository repository;
 
 
-    public void saveMachine(MachineDTO machineDTO) {
+    public MachineDTO saveMachine(MachineDTO machineDTO) {
         Machine machine = machineDTO.toMachine();
 
         // saving a new machine
@@ -30,11 +31,15 @@ public class MachineService {
         }
 
         repository.save(machine);
+        return new MachineDTO(machine);
     }
 
-    public void updateMachine(MachineDTO machineDTO) {
+    public MachineDTO updateMachine(MachineDTO machineDTO) {
         if (repository.existsById(machineDTO.getId())) {
             repository.save(machineDTO.toMachine());
+            return machineDTO;
+        } else {
+            throw new NoSuchElementException();
         }
     }
 
