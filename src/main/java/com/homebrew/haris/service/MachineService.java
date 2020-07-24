@@ -36,6 +36,7 @@ public class MachineService {
 
     public MachineDTO updateMachine(MachineDTO machineDTO) {
         if (repository.existsById(machineDTO.getId())) {
+            machineDTO.setUpdatedAt(LocalDateTime.now());
             repository.save(machineDTO.toMachine());
             return machineDTO;
         } else {
